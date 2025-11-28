@@ -35,15 +35,12 @@
 )
 
 (defchords programming 400
-  (p n t) (macro s t d S-; S-; p r i n t S-9 S-' S-'  S-0 left left)
+  (p n t) (macro s t d S-; S-; p r i n t S-9 S-2 S-2 S-0 left left)
   (s t d) (macro s t d S-; S-;)
   (s t i) (macro s t d S-; S-; s t r i n g spc)
-  (i c l) (macro S-3 i n c l u d e S-, S-. left)
+  (i c l) (macro Backslash i n c l u d e S-, S-. left)
   (r e n o) (macro r e t u r n S-9 @0 S-0 ;)
   (f o r) (macro f o r S-9 S-0 spc S-[ S-] left ret C-left C-left left left)
-  (t) @tctrl
-  (spc) spc
-  (t spc) (macro t h e spc)
 )
 
 (defsrc
@@ -55,7 +52,7 @@
 )
 
 (deflayer base
-  S-4      S-7   [      S-[    S-]     S-9    =      S-8     S-0     +      ]       S-1    Backslash             bspc
+  S-Backslash      S-7   [      S-[    S-]     S-9    =      S-8     S-0     +      ]       S-1    Backslash             bspc
   tab      ;     ,      .      i       @yfunc @ffunc l       r       c      g       /      S-'     
   bspc     @ualt @owind @ectrl @ashift p     @darrow @hshift @tctrl   @nwind @salt   -      IntlBackslash   ret
   lsft     apos  q      j      k       x     \       b       m       w       v      z       rsft
@@ -79,9 +76,9 @@
   _    _      _                     _                _    _    _    _
 )
 (deflayer Shift 
-  S-`      S-5    7       5       3        1   9   0        2        4       6       8      `   bspc 
-  tab      S-;    S-,     S-.     S-i      S-y S-f S-l      S-r      S-c     S-g     S-/    S-'     
-  bspc     @ualts @owinds @ectrls S-a S-p S-d  S-h @tctrls  @nwinds @salts  S--    S-\ S-ret
+  S-`      S-5    7       5       3        1   9   0        2        4       6       8    `     bspc 
+  tab      S-;    S-,     S-.     S-i      S-y S-f S-l      S-r      S-c     S-g     S-/    S-6     
+  bspc     @ualts @owinds @ectrls S-a S-p S-d  S-h @tctrls  @nwinds @salts  S--    S-IntlBackslash S-ret
   @shift   S-2    S-q     S-j     S-k      S-x S-\ S-b      S-m      S-w     S-v     S-z    @shift
   @control lmet   lalt            spc              @emojis rmet      comp    @control
 )
@@ -90,12 +87,12 @@
   _    _    esc  up       ret     S-ret _    _      (multi lsft lctl)  _    _    _    _
   _    tab  left down     right   _     _    _      lsft               lctl _    _    _    _
   _    _    _    home     end     _     _    _      _                  _    _    _    _
-  _    _    _                     (chord programming spc)                   _                  _    _    _
+  _    _    _                     _                 _                  _    _    _
 )
 (deflayer Chords
   _    _    _    _    _     _     _    _    _    _    _    _    _    _
   _    _    _    _    (chord programming i) _    (chord programming f)    (chord programming l)    (chord programming r)    (chord programming c)    _    _    _
-  _    _    (chord programming o)    (chord programming e)    _     (chord programming p)    ret   (chord programming d)    (chord programming t)    (chord programming n)    (chord programming s)    _    _    _
+  _    _    (chord programming o)    (chord programming e)    _     (chord programming p)     (chord programming d)  _  (chord programming t)    (chord programming n)    (chord programming s)  _     _    _
   _    _    _    _    _     _     _    _    _    _    _    _    _
   _    _    _               _               _    _    _    _
 )
