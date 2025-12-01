@@ -9,20 +9,20 @@
   ffunc (tap-hold 150 150 f @func)
   ashift (tap-hold 150 150 a @shift)
   ectrl (tap-hold 150 150 e lctl)
-  owind (tap-hold 150 150 o lmet)
-  ualt (tap-hold 150 150 u lalt)
+  owind (tap-hold 165 165 o lmet)
+  ualt (tap-hold 180 180 u lalt)
   hshift (tap-hold 150 150 h @shift)
   tctrl (tap-hold 150 150 t lctl)
-  nwind (tap-hold 150 150 n lmet)
-  salt (tap-hold 150 150 s lalt)
+  nwind (tap-hold 165 165 n lmet)
+  salt (tap-hold 180 180 s lalt)
   darrow (tap-hold 150 150 d (layer-while-held Arrowkeys))
   altchord (tap-hold 150 150 lalt (layer-while-held Chords))
   ectrls (tap-hold 150 150 S-e S-lctl)
-  owinds (tap-hold 150 150 S-o S-lmet)
-  ualts (tap-hold 150 150 S-u S-lalt)
+  owinds (tap-hold 165 165 S-o S-lmet)
+  ualts (tap-hold 180 180 S-u S-lalt)
   tctrls (tap-hold 150 150 S-t S-lctl)
-  nwinds (tap-hold 150 150 S-n S-lmet)
-  salts (tap-hold 150 150 S-s S-lalt)
+  nwinds (tap-hold 165 165 S-n S-lmet)
+  salts (tap-hold 180 180 S-s S-lalt)
   emojis (layer-while-held emojis)
   disgust (unicode 🤢)  
   party (unicode 🥳)
@@ -32,15 +32,18 @@
   shush (unicode 🤫) 
   ear (unicode 🧏)
   0 0
+  \ IntlBackslash
 )
 
 (defchords programming 400
-  (p n t) (macro s t d S-; S-; p r i n t S-9 S-2 S-2 S-0 left left)
+  (p n t) (macro s t d S-; S-; p r i n t S-9 S-2 S-2 S-0 ; left left left)
+  (p n t s) (macro s t d S-; S-; p r i n t S-9 S-2  S-[ S-] spc @\ n S-2 , spc  S-0 ; left left)
   (s t d) (macro s t d S-; S-;)
   (s t i) (macro s t d S-; S-; s t r i n g spc)
   (i c l) (macro Backslash i n c l u d e S-, S-. left)
   (r e n o) (macro r e t u r n S-9 @0 S-0 ;)
   (f o r) (macro f o r S-9 S-0 spc S-[ S-] left ret C-left C-left left left)
+  (m a n) (macro i n t spc m a i n S-9 S-0 spc S-[ S-] left ret)
 )
 
 (defsrc
@@ -52,11 +55,11 @@
 )
 
 (deflayer base
-  S-Backslash      S-7   [      S-[    S-]     S-9    =      S-8     S-0     +      ]       S-1    Backslash             bspc
-  tab      ;     ,      .      i       @yfunc @ffunc l       r       c      g       /      S-'     
-  bspc     @ualt @owind @ectrl @ashift p     @darrow @hshift @tctrl   @nwind @salt   -      IntlBackslash   ret
-  lsft     apos  q      j      k       x     \       b       m       w       v      z       rsft
-  @control lmet  @altchord                   spc                @emojis  rmet   comp @control
+  S-4         S-7   [      S-[    S-9     =      S-8           +       S-1     S-0    S-]   ]         Backslash     bspc
+  tab         ;     ,      .      i       @yfunc @ffunc        l       r       c      g     /         S-'     
+  bspc        @ualt @owind @ectrl @ashift p      @darrow       @hshift @tctrl  @nwind @salt -         IntlBackslash ret
+  lsft        apos  q      j      k       x      IntlBackslash b       m       w      v     z         rsft
+  @control    lmet  @altchord                    spc           @emojis rmet    comp   @control
 )
 
 (deflayer Control
@@ -76,11 +79,11 @@
   _    _      _                     _                _    _    _    _
 )
 (deflayer Shift 
-  S-`      S-5    7       5       3        1   9   0        2        4       6       8    `     bspc 
-  tab      S-;    S-,     S-.     S-i      S-y S-f S-l      S-r      S-c     S-g     S-/    S-6     
-  bspc     @ualts @owinds @ectrls S-a S-p S-d  S-h @tctrls  @nwinds @salts  S--    S-IntlBackslash S-ret
-  @shift   S-2    S-q     S-j     S-k      S-x S-\ S-b      S-m      S-w     S-v     S-z    @shift
-  @control lmet   lalt            spc              @emojis rmet      comp    @control
+  S-Backslash S-5    7       5       3        1   9   0        2        4       6       8    `     bspc 
+  tab         S-;    S-,     S-.     S-i      S-y S-f S-l      S-r      S-c     S-g     S-/    S-6     
+  bspc        @ualts @owinds @ectrls S-a S-p S-d  S-h @tctrls  @nwinds @salts  S--    S-IntlBackslash S-ret
+  @shift      S-2    S-q     S-j     S-k      S-x S-\ S-b      S-m      S-w     S-v     S-z    @shift
+  @control    lmet   lalt            spc              @emojis rmet      comp    @control
 )
 (deflayer Arrowkeys
   _    _    _    _        _       _     _    _      _                  _    _    _    _    _
@@ -92,8 +95,8 @@
 (deflayer Chords
   _    _    _    _    _     _     _    _    _    _    _    _    _    _
   _    _    _    _    (chord programming i) _    (chord programming f)    (chord programming l)    (chord programming r)    (chord programming c)    _    _    _
-  _    _    (chord programming o)    (chord programming e)    _     (chord programming p)     (chord programming d)  _  (chord programming t)    (chord programming n)    (chord programming s)  _     _    _
-  _    _    _    _    _     _     _    _    _    _    _    _    _
+  _    _    (chord programming o)    (chord programming e)    (chord programming a)     (chord programming p)     (chord programming d)  _  (chord programming t)    (chord programming n)    (chord programming s)  _     _    _
+  _    _    _    _    _     _     _    _    (chord programming m)    _    _    _    _
   _    _    _               _               _    _    _    _
 )
 
